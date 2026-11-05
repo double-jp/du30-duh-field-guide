@@ -1,5 +1,8 @@
 # DU30 · DUH 현장 작업 가이드 — 설치형 웹앱(PWA)
 
+**앱 주소: https://double-jp.github.io/du30-duh-field-guide/**
+(저장소: https://github.com/double-jp/du30-duh-field-guide · `main`에 올리면 자동 배포)
+
 `DU30_DUH_Field_Guide_v3.html`(단일 파일, 9.9MB)을 **스마트폰·PC에 설치하고 오프라인으로 쓰는 앱**으로 바꾼 배포본입니다.
 
 | 항목 | 원본 HTML | 앱(PWA) |
@@ -62,12 +65,29 @@ npm run serve
 
 처음 열 때 "오프라인 저장 완료" 알림이 뜨면, 그 뒤로는 장비 접속 중(외부망 끊김)에도 열립니다.
 
-## 내용 갱신 절차
+## 내용 갱신 절차 (GitHub Pages 자동 배포)
 
-1. 새 HTML(v4 등)을 `source/`에 넣는다 (기존 파일은 지워도 되고, 가장 최근 파일이 자동 선택됨)
-2. `npm run build`
-3. 새 `dist/`로 서버 내용을 교체
-4. 팀원 앱이 다음에 열릴 때 상단에 **"가이드 새 버전이 있습니다 · 지금 적용"** 표시
+`source/` 폴더에는 **HTML 파일을 하나만** 둡니다. 여러 개면 빌드가 멈추고 알려줍니다.
+
+**방법 A — PC에서 (이 폴더 사용)**
+1. `source/`의 기존 HTML을 지우고 새 HTML(v4 등)을 넣는다
+2. 터미널에서 이 폴더로 이동 후:
+   ```bash
+   git add -A
+   ```
+   ```bash
+   git commit -m "가이드 v4 반영"
+   ```
+   ```bash
+   git push
+   ```
+
+**방법 B — GitHub 웹에서 (설치 없이)**
+1. 저장소 → `source` 폴더 → 기존 HTML 파일 열기 → 휴지통 아이콘으로 삭제 커밋
+2. `source` 폴더 → **Add file → Upload files** → 새 HTML 올리고 커밋
+
+어느 쪽이든 약 1분 뒤 Actions 탭의 "Deploy PWA to GitHub Pages"가 초록색이 되면 반영 완료입니다.
+팀원 앱은 다음에 열릴 때 상단에 **"가이드 새 버전이 있습니다 · 지금 적용"** 이 뜹니다.
 
 원본 HTML 구조(`<script id="assets">`, 사이드바 `side-foot`)가 바뀌어 빌드가 위치를 못 찾으면 빌드 단계에서 어떤 부분이 없는지 알려주고 멈춥니다.
 
