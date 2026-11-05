@@ -1,0 +1,19 @@
+/* 원본 가이드의 색 변수(--surface, --ink, --accent …)를 그대로 쓴다 */
+.pwa-install{display:flex;align-items:center;gap:8px;width:100%;justify-content:center;
+  border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink);
+  border-radius:10px;padding:9px 12px;font-size:13px;font-weight:700}
+.pwa-install[hidden]{display:none}
+.pwa-install svg{width:16px;height:16px;flex-shrink:0}
+.pwa-install:hover{border-color:var(--accent)}
+
+.pwa-note{position:fixed;left:0;right:0;margin:0 auto;width:max-content;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:300;
+  transform:translateY(-160%);transition:transform .25s ease;
+  display:flex;align-items:center;gap:10px;max-width:min(calc(100vw - 24px),520px);
+  background:var(--ink);color:var(--bg);padding:10px 10px 10px 16px;border-radius:12px;
+  font-size:13.5px;font-weight:600;line-height:1.45;box-shadow:0 8px 28px rgb(0 0 0 / .25)}
+.pwa-note.show{transform:translateY(0)}
+.pwa-note span{flex:1}
+.pwa-note button{border:0;border-radius:8px;padding:6px 12px;font-size:13px;font-weight:700;
+  background:var(--bg);color:var(--ink);white-space:nowrap}
+.pwa-note button.x{background:transparent;color:var(--bg);opacity:.7;padding:4px 8px;font-size:18px;line-height:1}
+@media (prefers-reduced-motion:reduce){.pwa-note{transition:none}}

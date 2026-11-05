@@ -1,0 +1,15 @@
+{
+  "name": "du30-duh-field-guide-app",
+  "version": "3.0.0",
+  "private": true,
+  "description": "DU30 · DUH 현장 작업 가이드 — 설치형 웹앱(PWA)",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs",
+    "start": "node scripts/build.mjs && node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
